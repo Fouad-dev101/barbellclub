@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rabat Barbell Club — Built for Strength</title>
+<meta name="description" content="Rabat Barbell Club — a serious strength-training gym in Hay Riad, Rabat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bk:#080808;--ch:#151515;--of:#F3F1EC;--gr:#858585;--rd:#B3261E;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--bk)}
+body{background:var(--bk);color:var(--of);font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.an{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+a{color:inherit;text-decoration:none}
+.w{max-width:1280px;margin:0 auto;padding:0 24px}
+.lbl{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gr)}
+.lbl b{color:var(--rd);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--of);transition:.25s;cursor:pointer;background:none;color:var(--of)}
+.btn.r{background:var(--rd);border-color:var(--rd)}
+.btn:hover{background:var(--of);color:var(--bk);border-color:var(--of)}
+.btn.r:hover{background:var(--of);color:var(--bk)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--rd);outline-offset:3px}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:.3s}
+nav.s{background:rgba(8,8,8,.96);border-bottom:1px solid #222}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{width:44px;height:44px}
+.logo span{font-family:Anton,sans-serif;font-size:17px;letter-spacing:.06em;line-height:1}
+.links{display:flex;gap:30px;align-items:center}
+.links a.l{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#cfcdc8;position:relative}
+.links a.l:after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--rd);transition:.25s}
+.links a.l:hover:after{width:100%}
+.links .btn{padding:11px 18px;font-size:11px}
+.bg{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.bg i{position:absolute;left:10px;right:10px;height:2px;background:var(--of);transition:.3s}
+.bg i:nth-child(1){top:15px}.bg i:nth-child(2){top:21px}.bg i:nth-child(3){top:27px}
+.open .bg i:nth-child(1){top:21px;transform:rotate(45deg)}.open .bg i:nth-child(2){opacity:0}.open .bg i:nth-child(3){top:21px;transform:rotate(-45deg)}
+@media(max-width:900px){
+.bg{display:block}
+.links{position:fixed;inset:0;background:var(--bk);flex-direction:column;justify-content:center;gap:26px;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.open .links{transform:none}
+.links a.l{font-family:Anton,sans-serif;font-size:42px;letter-spacing:.02em;color:var(--of)}
+}
+/* hero */
+.hero{min-height:100svh;position:relative;display:flex;align-items:flex-end;padding:120px 0 64px;overflow:hidden;background:radial-gradient(ellipse at 70% 30%,#1c1c1c 0,var(--bk) 62%)}
+.hero svg.pl{position:absolute;right:-8%;top:50%;width:min(80vw,820px);transform:translateY(-52%);opacity:.9}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.92) 20%,rgba(8,8,8,.15) 80%),linear-gradient(0deg,var(--bk) 0,transparent 35%)}
+.hero .w{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(68px,13vw,190px);margin:20px 0 28px}
+.hero h1 em{font-style:normal;color:var(--rd)}
+.hero p{max-width:480px;color:#cfcdc8;margin-bottom:34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero .loc{position:absolute;right:24px;bottom:64px;z-index:2;writing-mode:vertical-rl;transform:rotate(180deg)}
+@media(max-width:700px){.hero .loc{display:none}}
+/* marquee */
+.mq{border-block:1px solid #222;background:var(--ch);overflow:hidden;white-space:nowrap}
+.mq div{display:inline-block;padding:18px 0;animation:m 32s linear infinite;font-family:Anton,sans-serif;font-size:26px;letter-spacing:.06em;color:#3b3b3b}
+.mq span{margin:0 22px}.mq span.x{color:var(--rd)}
+@keyframes m{to{transform:translateX(-50%)}}
+section{padding:120px 0}
+@media(max-width:700px){section{padding:80px 0}}
+h2{font-size:clamp(46px,8vw,112px)}
+/* club */
+.club{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.ph{position:relative;background:var(--ch);overflow:hidden;border:1px solid #222}
+.ph svg{display:block;width:100%;height:100%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ph:hover svg{transform:scale(1.05)}
+.ph figcaption{position:absolute;left:14px;bottom:12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gr)}
+.club .ph{aspect-ratio:4/5}
+.club p{color:#b9b7b2;margin:26px 0;max-width:460px}
+.stats{display:flex;gap:44px;border-top:1px solid #222;padding-top:26px;margin-top:34px}
+.stats b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:44px;line-height:1}
+.stats span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gr)}
+@media(max-width:900px){.club{grid-template-columns:1fr;gap:44px}}
+/* facilities */
+.fac{background:var(--ch)}
+.fl{margin-top:64px;border-top:1px solid #2a2a2a}
+.fr{display:grid;grid-template-columns:80px 1fr 1fr;gap:24px;align-items:center;padding:34px 0;border-bottom:1px solid #2a2a2a;transition:.3s;position:relative}
+.fr:hover{padding-left:18px;background:linear-gradient(90deg,rgba(179,38,30,.12),transparent 60%)}
+.fr .n{color:var(--rd);font-family:Anton,sans-serif;font-size:20px}
+.fr h3{font-size:clamp(34px,5vw,64px)}
+.fr p{color:#9a9894;max-width:380px}
+.note{margin-top:22px;font-size:12px;color:var(--gr)}
+@media(max-width:800px){.fr{grid-template-columns:44px 1fr}.fr p{grid-column:2}}
+/* training */
+.tr{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:64px}
+.tr div{background:var(--ch);padding:34px 26px 44px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;border-top:3px solid #222;transition:.3s}
+.tr div:hover{border-color:var(--rd);background:#1b1b1b;transform:translateY(-6px)}
+.tr h3{font-size:38px}.tr p{color:#9a9894;font-size:14px;margin-top:14px}
+.tr .big{font-family:Anton,sans-serif;font-size:76px;color:#2a2a2a;line-height:1}
+@media(max-width:900px){.tr{grid-template-columns:1fr 1fr}}@media(max-width:520px){.tr{grid-template-columns:1fr}.tr div{min-height:240px}}
+/* membership */
+.mem{background:var(--of);color:var(--bk)}
+.mem .lbl{color:#666}
+.mem h2 span{color:var(--rd)}
+.pl3{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--bk);margin-top:60px}
+.pl3>div{padding:40px 30px;border-right:1px solid var(--bk);min-height:300px;display:flex;flex-direction:column;justify-content:space-between}
+.pl3>div:last-child{border:0}
+.pl3 h3{font-size:46px}
+.pl3 small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#666;margin-top:6px}
+.pl3 p{font-family:Anton,sans-serif;font-size:22px;text-transform:uppercase;line-height:1.1;color:var(--rd)}
+.extra{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;padding:28px 30px;border:1px solid var(--bk);border-top:0}
+.mem .btn{border-color:var(--bk);color:var(--bk)}
+.mem .btn.r{color:var(--of)}
+.mem .btn:hover{background:var(--bk);color:var(--of);border-color:var(--bk)}
+@media(max-width:800px){.pl3{grid-template-columns:1fr}.pl3>div{border-right:0;border-bottom:1px solid var(--bk);min-height:200px}}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:6px;margin-top:56px}
+.gal .ph{border:0}
+.g1{grid-column:span 3;grid-row:span 3}.g2{grid-column:span 3;grid-row:span 2}.g3{grid-column:span 2;grid-row:span 2}.g4{grid-column:span 2;grid-row:span 3}.g5{grid-column:span 2;grid-row:span 2}.g6{grid-column:span 3;grid-row:span 1}
+.gal .ph:after{content:"";position:absolute;inset:0;background:var(--rd);opacity:0;mix-blend-mode:multiply;transition:.4s}
+.gal .ph:hover:after{opacity:.35}
+@media(max-width:700px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:130px}.gal .ph{grid-column:span 1!important;grid-row:span 2!important}.g1{grid-column:span 2!important}}
+/* community */
+.com{background:var(--ch);text-align:center}
+.com h2{font-size:clamp(40px,7vw,100px)}
+.com p{color:#9a9894;max-width:520px;margin:26px auto 36px}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1.2fr;gap:64px}
+.ct dl{margin:40px 0}
+.ct dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gr);margin-top:22px}
+.ct dd{font-size:19px}
+.ct .bt{display:flex;gap:12px;flex-wrap:wrap}
+.map{border:1px solid #222;min-height:420px;position:relative;overflow:hidden;background:#101010}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9)}
+@media(max-width:900px){.ct{grid-template-columns:1fr;gap:44px}}
+footer{border-top:1px solid #222;padding:64px 0 32px;background:var(--bk)}
+.ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.ft ul{list-style:none;padding:0;display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.ft ul a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#cfcdc8}
+.ft ul a:hover{color:var(--rd)}
+.cp{margin-top:48px;padding-top:24px;border-top:1px solid #1d1d1d;font-size:12px;color:var(--gr);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mq div{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="lg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#F3F1EC"/><circle cx="50" cy="50" r="30" fill="#080808"/><path id="cp" d="M50 50m-39 0a39 39 0 1 1 78 0a39 39 0 1 1-78 0" fill="none"/><text font-family="Anton,sans-serif" font-size="11" letter-spacing="1.4" fill="#080808"><textPath href="#cp" startOffset="2%">RABAT BARBELL CLUB · SIC PARVIS MAGNA ·</textPath></text><rect x="26" y="38" width="48" height="3" fill="#F3F1EC"/><rect x="24" y="33" width="3" height="13" fill="#F3F1EC"/><rect x="73" y="33" width="3" height="13" fill="#F3F1EC"/><circle cx="50" cy="45" r="4" fill="#F3F1EC"/><rect x="43" y="49" width="14" height="22" rx="3" fill="#F3F1EC"/><rect x="43" y="68" width="5" height="12" fill="#F3F1EC"/><rect x="52" y="68" width="5" height="12" fill="#F3F1EC"/></symbol>
+<symbol id="plate" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#1a1a1a" stroke="#2c2c2c" stroke-width="3"/><circle cx="100" cy="100" r="80" fill="none" stroke="#B3261E" stroke-width="6"/><circle cx="100" cy="100" r="62" fill="#111" stroke="#2c2c2c" stroke-width="2"/><circle cx="100" cy="100" r="18" fill="#080808" stroke="#858585" stroke-width="3"/><text x="100" y="40" font-family="Anton" font-size="13" letter-spacing="3" fill="#858585" text-anchor="middle">RABAT BARBELL</text><text x="100" y="168" font-family="Anton" font-size="22" letter-spacing="2" fill="#F3F1EC" text-anchor="middle">20 KG</text></symbol>
+</defs></svg>
+
+<nav id="nav"><div class="w">
+<a href="#top" class="logo" aria-label="Rabat Barbell Club"><svg><use href="#lg"/></svg><span>RABAT<br>BARBELL CLUB</span></a>
+<button class="bg" id="bg" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+<div class="links" id="lk">
+<a class="l" href="#top">Home</a><a class="l" href="#club">The Club</a><a class="l" href="#facilities">Facilities</a><a class="l" href="#training">Training</a><a class="l" href="#membership">Membership</a><a class="l" href="#contact">Contact</a>
+<a class="btn r" href="#membership">Join the club</a>
+</div></div></nav>
+
+<header class="hero" id="top">
+<svg class="pl" viewBox="0 0 200 200" aria-hidden="true"><use href="#plate"/></svg>
+<div class="w">
+<p class="lbl"><b>—</b> Hay Riad — Rabat, Morocco</p>
+<h1>Built<br><em>Not</em> Given.</h1>
+<p>More than a gym. A place built around strength, discipline, and the people who push beyond their limits.</p>
+<div class="cta"><a class="btn" href="#club">Discover the club</a><a class="btn r" href="#membership">Become a member</a></div>
+</div>
+<span class="lbl loc">Hay Riad — Rabat, Morocco</span>
+</header>
+
+<div class="mq" aria-hidden="true"><div><span>Built for strength</span><span class="x">✕</span><span>Barbell club</span><span class="x">✕</span><span>Sic parvis magna</span><span class="x">✕</span><span>Built for strength</span><span class="x">✕</span><span>Barbell club</span><span class="x">✕</span><span>Sic parvis magna</span><span class="x">✕</span><span>Built for strength</span><span class="x">✕</span><span>Barbell club</span><span class="x">✕</span><span>Sic parvis magna</span><span class="x">✕</span><span>Built for strength</span><span class="x">✕</span><span>Barbell club</span><span class="x">✕</span><span>Sic parvis magna</span><span class="x">✕</span></div></div>
+
+<section id="club"><div class="w club">
+<figure class="ph rv"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice"><rect width="400" height="500" fill="#121212"/><g opacity=".55"><rect x="60" y="0" width="14" height="500" fill="#222"/><rect x="326" y="0" width="14" height="500" fill="#222"/><rect x="60" y="120" width="280" height="10" fill="#2a2a2a"/></g><use href="#plate" x="40" y="250" width="180" height="180"/><use href="#plate" x="190" y="290" width="160" height="160"/><rect x="0" y="440" width="400" height="60" fill="#0c0c0c"/></svg><figcaption>Replace with club interior photo</figcaption></figure>
+<div class="rv"><p class="lbl"><b>01</b> — The Club</p><h2 style="margin-top:18px">This is where strength is built.</h2>
+<p>Rabat Barbell Club is a strength-training gym in Hay Riad, Rabat. A serious room for people who take their training seriously: barbells, plates, racks and a community that shows up to put in the work.</p>
+<a class="btn" href="#facilities">See the facilities</a>
+<div class="stats"><div><b>9K+</b><span>Instagram followers</span></div><div><b>4.6★</b><span>Google rating (123)</span></div></div></div>
+</div></section>
+
+<section class="fac" id="facilities"><div class="w">
+<p class="lbl rv"><b>02</b> — Facilities</p><h2 class="rv" style="margin-top:18px">The equipment.</h2>
+<div class="fl">
+<div class="fr rv"><span class="n">01</span><h3>Free Weights</h3><p>Barbells and weight plates, the core of the club.</p></div>
+<div class="fr rv"><span class="n">02</span><h3>Strength Racks</h3><p>Power racks and platforms for heavy, structured lifting.</p></div>
+<div class="fr rv"><span class="n">03</span><h3>Resistance Machines</h3><p>Plate-loaded and selectorized machines for focused work.</p></div>
+<div class="fr rv"><span class="n">04</span><h3>Specialty Bars &amp; Attachments</h3><p>Grip attachments and specialty bars, featured on the club's page.</p></div>
+</div>
+<p class="note">Facility list based on the club's public Instagram. Confirm with the owner and edit, add photos or remove rows before launch.</p>
+</div></section>
+
+<section id="training"><div class="w">
+<p class="lbl rv"><b>03</b> — Training</p><h2 class="rv" style="margin-top:18px">Train with intent.</h2>
+<div class="tr">
+<div class="rv"><span class="big">01</span><span><h3>Strength</h3><p>Squat, bench, deadlift. Heavy work under the bar.</p></span></div>
+<div class="rv"><span class="big">02</span><span><h3>Muscle Building</h3><p>Volume, machines and free weights for steady growth.</p></span></div>
+<div class="rv"><span class="big">03</span><span><h3>General Fitness</h3><p>Stay strong, mobile and consistent, at your level.</p></span></div>
+<div class="rv"><span class="big">04</span><span><h3>Performance</h3><p>Train toward lifts, meets and personal records.</p></span></div>
+</div></div></section>
+
+<section class="mem" id="membership"><div class="w">
+<p class="lbl rv"><b>04</b> — Membership</p><h2 class="rv" style="margin-top:18px">Your next level <span>starts here.</span></h2>
+<div class="pl3 rv">
+<div><span><h3>Monthly</h3><small>Flexible</small></span><p>Contact us for membership options</p></div>
+<div><span><h3>Quarterly</h3><small>3 months</small></span><p>Contact us for membership options</p></div>
+<div><span><h3>Annual</h3><small>12 months</small></span><p>Contact us for membership options</p></div>
+</div>
+<div class="extra rv"><span><b>Additional services</b> — editable, ask the club</span><a class="btn r" href="https://wa.me/212622688667" target="_blank" rel="noopener">Ask about membership</a></div>
+</div></section>
+
+<section id="gallery"><div class="w">
+<p class="lbl rv"><b>05</b> — Gallery</p><h2 class="rv" style="margin-top:18px">Inside the work.</h2>
+<div class="gal">
+<figure class="ph g1 rv"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#101010"/><use href="#plate" x="60" y="40" width="280" height="280"/></svg><figcaption>Plates</figcaption></figure>
+<figure class="ph g2 rv"><svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice"><rect width="400" height="260" fill="#161616"/><text x="200" y="150" font-family="Anton" font-size="90" fill="#B3261E" text-anchor="middle">200KG</text></svg><figcaption>Club PRs</figcaption></figure>
+<figure class="ph g3 rv"><svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice"><rect width="200" height="260" fill="#131313"/><rect x="20" y="120" width="160" height="6" fill="#858585"/><rect x="30" y="90" width="12" height="66" fill="#2a2a2a"/><rect x="158" y="90" width="12" height="66" fill="#2a2a2a"/></svg><figcaption>Barbell</figcaption></figure>
+<figure class="ph g4 rv"><svg viewBox="0 0 200 400" preserveAspectRatio="xMidYMid slice"><rect width="200" height="400" fill="#181818"/><rect x="40" y="0" width="14" height="400" fill="#252525"/><rect x="146" y="0" width="14" height="400" fill="#252525"/><rect x="40" y="140" width="120" height="8" fill="#B3261E"/></svg><figcaption>Racks</figcaption></figure>
+<figure class="ph g5 rv"><svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice"><rect width="200" height="260" fill="#111"/><use href="#plate" x="10" y="50" width="180" height="180"/></svg><figcaption>Training</figcaption></figure>
+<figure class="ph g6 rv"><svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMid slice"><rect width="400" height="130" fill="#151515"/><text x="200" y="85" font-family="Anton" font-size="52" fill="#F3F1EC" text-anchor="middle" letter-spacing="3">MOCK MEET</text></svg><figcaption>Community</figcaption></figure>
+</div>
+<p class="note">Illustrative placeholders. Drop in the club's own photos, same aspect ratios, for launch.</p>
+</div></section>
+
+<section class="com"><div class="w rv">
+<p class="lbl"><b>06</b> — Community</p><h2 style="margin-top:18px">The club. The people. The work.</h2>
+<p>Mock meets, heavy days and the people who show up. Follow the club for daily training content.</p>
+<a class="btn r" href="https://www.instagram.com/rabatbarbellclub/" target="_blank" rel="noopener">Follow the movement</a>
+</div></section>
+
+<section id="contact"><div class="w ct">
+<div class="rv"><p class="lbl"><b>07</b> — Contact</p><h2 style="margin-top:18px">Find your place.</h2>
+<dl><dt>Club</dt><dd>Rabat Barbell Club</dd><dt>Address</dt><dd>Secteur 16, bloc M1, Hay Riad, Rabat 10001</dd><dt>Phone</dt><dd><a href="tel:+212622688667">06 22 68 86 67</a></dd><dt>Hours</dt><dd>See Instagram highlight "Horaires"</dd></dl>
+<div class="bt"><a class="btn r" href="https://wa.me/212622688667" target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="https://www.instagram.com/rabatbarbellclub/" target="_blank" rel="noopener">Instagram</a></div></div>
+<div class="map rv"><iframe title="Rabat Barbell Club map" loading="lazy" src="https://www.google.com/maps?q=33.9556428,-6.869117&z=16&output=embed"></iframe></div>
+</div></section>
+
+<footer><div class="w">
+<div class="ft"><a href="#top" class="logo"><svg><use href="#lg"/></svg><span>RABAT<br>BARBELL CLUB</span></a>
+<ul><li><a href="#club">The Club</a></li><li><a href="#facilities">Facilities</a></li><li><a href="#training">Training</a></li><li><a href="#membership">Membership</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.instagram.com/rabatbarbellclub/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+<div class="cp"><span>Hay Riad, Rabat, Morocco · 06 22 68 86 67</span><span>© 2026 Rabat Barbell Club. Website proposal.</span></div>
+</div></footer>
+
+<script>
+const nav=document.getElementById('nav'),bg=document.getElementById('bg');
+const sc=()=>nav.classList.toggle('s',scrollY>40);sc();addEventListener('scroll',sc,{passive:true});
+bg.onclick=()=>{const o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');bg.setAttribute('aria-expanded',false);document.body.style.overflow=''}));
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+</script>
+</body>
+</html>
